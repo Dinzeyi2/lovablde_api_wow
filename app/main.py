@@ -83,7 +83,7 @@ async def health_check():
 
 class CreateAPIKeyRequest(BaseModel):
     name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field(..., regex=r'^[\w\.-]+@[\w\.-]+\.\w+$')
+    email: str = Field(..., pattern=r'^[\w\.-]+@[\w\.-]+\.\w+$')
 
 @app.post("/api/v1/keys/create")
 @limiter.limit("5/hour")  # Limit API key creation
@@ -104,7 +104,7 @@ async def create_new_api_key(
 # ==================== ML MODEL TRAINING ====================
 
 class TrainModelRequest(BaseModel):
-    model_type: str = Field(..., regex='^(recommendation|classification|regression|clustering)$')
+    model_type: str = Field(..., pattern='^(recommendation|classification|regression|clustering)$')
     name: str = Field(..., min_length=1, max_length=100)
     target_column: Optional[str] = Field(None, max_length=100)
     
@@ -236,7 +236,7 @@ async def predict(
 # ==================== PRE-BUILT ALGORITHMS (SECURE) ====================
 
 class ExecuteAlgorithmRequest(BaseModel):
-    algorithm_name: str = Field(..., regex='^[a-z-]+$')
+    algorithm_name: str = Field(..., pattern='^[a-z-]+$')
     params: Dict[str, Any] = Field(..., max_length=1000)
     
     @validator('algorithm_name')
