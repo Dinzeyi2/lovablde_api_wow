@@ -29,7 +29,7 @@ def train_model_task(self, data_path: str, model_type: str, target_column: str,
         
         # Update status to training
         db_model.status = "training"
-        db_model.metadata = {"started_at": datetime.utcnow().isoformat()}
+        db_model.model_metadata = {"started_at": datetime.utcnow().isoformat()}
         db.commit()
         
         # Sanitize data first
@@ -39,7 +39,7 @@ def train_model_task(self, data_path: str, model_type: str, target_column: str,
         # Check if data is usable
         if report.get('critical_issues'):
             db_model.status = "failed"
-            db_model.metadata = {
+            db_model.model_metadata = {
                 "error": "Data quality issues",
                 "issues": report['critical_issues']
             }
@@ -60,13 +60,13 @@ def train_model_task(self, data_path: str, model_type: str, target_column: str,
         
         if success:
             db_model.status = "ready"
-            db_model.metadata = {
+            db_model.model_metadata = {
                 "completed_at": datetime.utcnow().isoformat(),
                 "data_quality_report": report
             }
         else:
             db_model.status = "failed"
-            db_model.metadata = {"error": "Training failed"}
+            db_model.model_metadata = {"error": "Training failed"}
         
         db.commit()
         
@@ -80,7 +80,7 @@ def train_model_task(self, data_path: str, model_type: str, target_column: str,
         # Update model status to failed
         if db_model:
             db_model.status = "failed"
-            db_model.metadata = {"error": str(e)}
+            db_model.model_metadata = {"error": str(e)}
             db.commit()
         
         # Retry on certain errors
@@ -186,7 +186,7 @@ def check_stalled_training():
         
         for model in stalled:
             model.status = "failed"
-            model.metadata = {"error": "Training timeout"}
+            model.model_metadata = {"error": "Training timeout"}
         
         db.commit()
         
