@@ -14,12 +14,9 @@ celery==5.3.4
 # Rate Limiting
 slowapi==0.1.9
 
-# Security & Isolation
-docker==7.0.0
-
 # ML/Data Science
 scikit-learn==1.4.0
-pandas==2.2.0
+pandas>=2.1.0,<2.2.0
 numpy==1.26.3
 joblib==1.3.2
 xgboost==2.0.3
@@ -31,6 +28,3 @@ passlib[bcrypt]==1.7.4
 # Utilities
 python-dateutil==2.8.2
 httpx==0.26.0
-
-# Monitoring (optional)
-# sentry-sdk[fastapi]==1.40.0
