@@ -84,7 +84,7 @@ class MLTrainer:
         
         except Exception as e:
             db_model.status = "failed"
-            db_model.metadata = {"error": str(e)}
+            db_model.model_metadata = {"error": str(e)}
             db.commit()
             raise
     
