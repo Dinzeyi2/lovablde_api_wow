@@ -372,7 +372,7 @@ async def get_model(
         "created_at": model.created_at.isoformat(),
         "prediction_count": model.prediction_count,
         "accuracy": model.accuracy,
-        "metadata": model.metadata,
+        "metadata":  model.model_metadata,
         "endpoint": f"/api/v1/predict/{model.id}" if model.status == "ready" else None
     }
 
