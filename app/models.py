@@ -27,7 +27,7 @@ class Model(Base):
     status = Column(String, default="training")  # training, ready, failed
     file_path = Column(String, nullable=True)
     accuracy = Column(Float, nullable=True)
-    metadata = Column(JSON, nullable=True)
+    model_metadata = Column(JSON, nullable=True)
     prediction_count = Column(Integer, default=0)
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
