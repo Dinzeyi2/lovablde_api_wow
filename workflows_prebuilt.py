@@ -345,7 +345,7 @@ PREBUILT_WORKFLOWS = {
                 "input": {
                     "locations": "{{delivery_locations}}",
                     "start_location": "{{warehouse_location}}",
-                    "return_to_start": true,
+                    "return_to_start": True,
                     "avg_speed_kmh": 50,
                     "stop_time_minutes": 15
                 }
@@ -483,7 +483,7 @@ PREBUILT_WORKFLOWS = {
                 },
                 "conditions": [
                     {
-                        "if": "output.is_plagiarized == true",
+                        "if": "output.is_plagiarized == True",
                         "then": "stop_workflow",
                         "return": {
                             "status": "rejected",
