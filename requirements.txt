@@ -35,3 +35,5 @@ httpx==0.26.0
 
 # Monitoring (optional)
 # sentry-sdk[fastapi]==1.40.0
+# Workflow Engine (already have most dependencies)
+# No new packages needed - uses existing httpx, celery, sqlalchemy
