@@ -20,7 +20,9 @@ import uuid
 
 from app.database import engine, SessionLocal, Base
 from app.models import Model, APIKey
+from app.models_workflow import WorkflowTemplate, WorkflowExecution
 from app.auth import verify_api_key, create_api_key
+from app.routes import workflows 
 from app.prebuilt import PREBUILT_ALGORITHMS
 from app.tasks import train_model_task, execute_algorithm_secure
 from app.services.logic_verifier import LogicVerifier
@@ -34,6 +36,8 @@ app = FastAPI(
     description="Production-hardened Complex Algorithm API",
     version="2.0.0-secure"
 )
+# Include workflow routes
+app.include_router(workflows.router)  # ← ADD THIS LINE
 
 # Rate limiting
 limiter = Limiter(key_func=get_remote_address)
