@@ -446,3 +446,37 @@ def tsp_genetic(input_data: TSPGeneticInput) -> TSPGeneticOutput:
             "elitism_count": input_data.elitism_count
         }
     )
+# ============================================================================
+# EXPORT FUNCTION (FastAPI wrapper)
+# ============================================================================
+
+def execute_tsp(input_data: TSPGeneticInput) -> TSPGeneticOutput:
+    """
+    Wrapper function for FastAPI route.
+    This is what gets imported in app/routes/algorithms.py
+    """
+    return tsp_genetic(input_data)
+
+
+# ============================================================================
+# TEST SECTION
+# ============================================================================
+
+if __name__ == "__main__":
+    # Test with sample locations
+    test_input = TSPGeneticInput(
+        locations=[
+            Location(name="A", x=0, y=0),
+            Location(name="B", x=10, y=10),
+            Location(name="C", x=20, y=5),
+            Location(name="D", x=15, y=15),
+            Location(name="E", x=5, y=20)
+        ],
+        population_size=100,
+        generations=500
+    )
+    
+    result = execute_tsp(test_input)
+    print(f"✅ Best route: {result.best_route}")
+    print(f"📏 Distance: {result.total_distance}")
+    print(f"📈 Improvement: {result.improvement_percentage}%")
