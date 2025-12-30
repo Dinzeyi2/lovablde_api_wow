@@ -13,7 +13,8 @@ import json
 from app.algorithms.graphs.dijkstra import execute_dijkstra, DijkstraInput
 from app.algorithms.graphs.a_star import execute_a_star, AStarInput
 from app.algorithms.optimization.knapsack import execute_knapsack, KnapsackInput
-
+from app.algorithms.routing.tsp_genetic import execute_tsp_genetic, TSPGeneticInput
+from app.algorithms.string.kmp_matching import execute_kmp, KMPInput
 # Database
 from app.models_algorithms import AlgorithmUsage, AlgorithmQuota
 
@@ -379,3 +380,21 @@ async def health_check():
         "service": "AlgoAPI Algorithms",
         "version": "1.0.0"
     }
+@router.post("/routing/tsp_genetic")
+async def tsp_genetic_endpoint(input_data: TSPGeneticInput, request: Request):
+    """TSP Genetic Algorithm - Find optimal route through multiple locations"""
+    try:
+        result = execute_tsp_genetic(input_data)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
+
+
+@router.post("/string/kmp")
+async def kmp_endpoint(input_data: KMPInput, request: Request):
+    """KMP String Matching - Fast pattern search in text"""
+    try:
+        result = execute_kmp(input_data)
+        return result
+    except Exception as e:
+        raise HTTPException(status_code=400, detail=str(e))
