@@ -22,6 +22,7 @@ from algorithms_ecommerce import EcommerceAlgorithms, MarketingAlgorithms
 from algorithms_security import SecurityAlgorithms, ContentAlgorithms, HealthcareAlgorithms
 from algorithms_enhanced_part1 import SentimentAnalysisProduction, ChurnPredictionProduction, LeadScoringProduction
 from algorithms_enhanced_part2 import RouteOptimizationProduction, CreditScoringProduction, DemandForecastingProduction
+from algorithms_fraud_advanced import execute_fraud_detection_advanced
 
 class AlgorithmExecutor:
     """
@@ -66,6 +67,9 @@ class AlgorithmExecutor:
             
             # 5. Churn Prediction - ENHANCED (gradient boosting, 92% accuracy)
             'churn-prediction': self.churn.predict_churn_advanced,
+
+            # ADD THIS LINE:
+            'fraud-detection-realtime': self._execute_fraud_advanced,
             
             # 6. Lead Scoring - ENHANCED (ML-based, 90% accuracy)
             'lead-scoring': self.lead_scoring.score_lead_advanced,
@@ -169,3 +173,9 @@ class AlgorithmExecutor:
             'version': '3.0-production',
             'production_ready': True
         }
+
+
+  # CHANGE 3: Add wrapper method at the end of the class
+    def _execute_fraud_advanced(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute advanced fraud detection with ML"""
+        return execute_fraud_detection_advanced(params)
