@@ -449,3 +449,6 @@ def kmp_count(
     matcher = KMPMatcher(pattern, case_sensitive)
     positions = matcher.search(text, find_all=True)
     return len(positions)
+def execute_kmp(input_data: KMPInput) -> KMPOutput:
+    """Wrapper for FastAPI"""
+    return kmp_matching(input_data)  # or whatever the main function is called
