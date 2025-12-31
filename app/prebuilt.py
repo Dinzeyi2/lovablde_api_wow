@@ -445,7 +445,26 @@ PREBUILT_ALGORITHMS = {
             'Financial planning tools'
         ]
     },
-    
+
+       # ADD THIS ENTIRE BLOCK:
+    'fraud-detection-realtime': {
+        'name': 'Real-Time Fraud Detection (ML)',
+        'description': 'Isolation Forest + LSTM - 95%+ accuracy, <10ms',
+        'category': 'security',
+        'pricing_tier': 'enterprise',
+        'parameters': {
+            'transaction': 'dict - Transaction details',
+            'user_history': 'list - Optional transaction history'
+        },
+        'returns': {
+            'is_fraud': 'boolean',
+            'risk_score': 'float (0-1)',
+            'risk_level': 'string',
+            'fraud_signals': 'list',
+            'recommendation': 'string'
+        }
+    },
+
     'portfolio-optimization': {
         'name': 'Portfolio Optimization (MPT)',
         'description': 'Modern Portfolio Theory with Sharpe ratio optimization',
