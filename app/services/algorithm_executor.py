@@ -23,7 +23,7 @@ from algorithms_security import SecurityAlgorithms, ContentAlgorithms, Healthcar
 from algorithms_enhanced_part1 import SentimentAnalysisProduction, ChurnPredictionProduction, LeadScoringProduction
 from algorithms_enhanced_part2 import RouteOptimizationProduction, CreditScoringProduction, DemandForecastingProduction
 from algorithms_fraud_advanced import execute_fraud_detection_advanced
-
+from algorithms_collaborative_filtering import execute_collaborative_filtering
 class AlgorithmExecutor:
     """
     Execute all 31 pre-built production algorithms
@@ -70,6 +70,7 @@ class AlgorithmExecutor:
 
             # ADD THIS LINE:
             'fraud-detection-realtime': self._execute_fraud_advanced,
+            'collaborative-filtering': self._execute_collaborative_filtering,
             
             # 6. Lead Scoring - ENHANCED (ML-based, 90% accuracy)
             'lead-scoring': self.lead_scoring.score_lead_advanced,
