@@ -29,7 +29,7 @@ from app.tasks import train_model_task, execute_algorithm_secure
 from app.services.logic_verifier import LogicVerifier
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
-
+from app.routes import collaborative_filtering
 # Create tables
 Base.metadata.create_all(bind=engine)
 
@@ -42,6 +42,7 @@ app = FastAPI(
 # Include workflow routes
 app.include_router(workflows.router)
 app.include_router(algorithms.router) # ← ADD THIS LINE
+app.include_router(collaborative_filtering.router)
 
 # Rate limiting
 limiter = Limiter(key_func=get_remote_address)
