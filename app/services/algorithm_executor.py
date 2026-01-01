@@ -24,7 +24,7 @@ from algorithms_enhanced_part1 import SentimentAnalysisProduction, ChurnPredicti
 from algorithms_enhanced_part2 import RouteOptimizationProduction, CreditScoringProduction, DemandForecastingProduction
 from algorithms_fraud_advanced import execute_fraud_detection_advanced
 from algorithms_collaborative_filtering import execute_collaborative_filtering
-from app.algorithms.demand_forecasting import execute_demand_forecasting
+from app.algorithms.demand_forecasting.algorithms_demand_forecasting import execute_demand_forecasting
 
 
 
