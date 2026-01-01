@@ -711,3 +711,48 @@ PERFORMANCE_BENCHMARKS = {
         'max_interactions': '1B'
     }
 }
+
+
+
+# In CollaborativeFilteringEngine class
+
+def get_similar_items(self, target_item: str, n: int = 10) -> List[Tuple[str, float]]:
+    """Get items similar to target item"""
+    if target_item not in self.item_id_map:
+        raise KeyError(f"Item '{target_item}' not found")
+    
+    item_idx = self.item_id_map[target_item]
+    
+    # Get item similarity scores
+    similarities = self.item_similarity[item_idx].toarray().flatten()
+    
+    # Get top N similar items
+    top_indices = np.argsort(similarities)[::-1][1:n+1]  # Exclude self
+    
+    similar_items = [
+        (self.reverse_item_map[idx], similarities[idx])
+        for idx in top_indices
+    ]
+    
+    return similar_items
+
+
+def get_similar_users(self, target_user: str, n: int = 10) -> List[Tuple[str, float]]:
+    """Get users similar to target user"""
+    if target_user not in self.user_id_map:
+        raise KeyError(f"User '{target_user}' not found")
+    
+    user_idx = self.user_id_map[target_user]
+    
+    # Get user similarity scores
+    similarities = self.user_similarity[user_idx].toarray().flatten()
+    
+    # Get top N similar users
+    top_indices = np.argsort(similarities)[::-1][1:n+1]  # Exclude self
+    
+    similar_users = [
+        (self.reverse_user_map[idx], similarities[idx])
+        for idx in top_indices
+    ]
+    
+    return similar_users
