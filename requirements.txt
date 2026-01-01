@@ -33,6 +33,11 @@ passlib[bcrypt]==1.7.4
 python-dateutil==2.8.2
 httpx==0.26.0
 
+tensorflow>=2.13.0
+keras>=2.13.0
+statsmodels>=0.14.0
+scipy>=1.11.0
+
 # Monitoring (optional)
 # sentry-sdk[fastapi]==1.40.0
 # Workflow Engine (already have most dependencies)
