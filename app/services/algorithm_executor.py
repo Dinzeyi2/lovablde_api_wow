@@ -90,6 +90,8 @@ class AlgorithmExecutor:
             
             # 10. Demand Forecasting - ENHANCED (Holt-Winters, 85% accuracy)
             'demand-forecasting': self.forecasting.forecast_demand_advanced,
+            # 11. Demand Forecasting - ENHANCED (LSTM + GA, 85-92% accuracy)
+            'demand-forecasting': self._execute_demand_forecasting,
             
             # ==================== FINANCIAL & MATHEMATICAL (5) ====================
             
@@ -184,3 +186,8 @@ class AlgorithmExecutor:
     def _execute_fraud_advanced(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """Execute advanced fraud detection with ML"""
         return execute_fraud_detection_advanced(params)
+
+#Demand Forecasting Algorithm wrapper method at end of class
+    def _execute_demand_forecasting(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute demand forecasting with inventory optimization"""
+        return execute_demand_forecasting(params)
