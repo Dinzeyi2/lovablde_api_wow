@@ -24,7 +24,7 @@ from algorithms_enhanced_part1 import SentimentAnalysisProduction, ChurnPredicti
 from algorithms_enhanced_part2 import RouteOptimizationProduction, CreditScoringProduction, DemandForecastingProduction
 from algorithms_fraud_advanced import execute_fraud_detection_advanced
 from algorithms_collaborative_filtering import execute_collaborative_filtering
-from app.algorithms.demand_forecasting.algorithms_demand_forecasting import execute_demand_forecasting
+#from app.algorithms.demand_forecasting.algorithms_demand_forecasting import execute_demand_forecasting
 
 
 
@@ -91,7 +91,7 @@ class AlgorithmExecutor:
             # 10. Demand Forecasting - ENHANCED (Holt-Winters, 85% accuracy)
             'demand-forecasting': self.forecasting.forecast_demand_advanced,
             # 11. Demand Forecasting - ENHANCED (LSTM + GA, 85-92% accuracy)
-            'demand-forecasting': self._execute_demand_forecasting,
+            #'demand-forecasting': self._execute_demand_forecasting,
             
             # ==================== FINANCIAL & MATHEMATICAL (5) ====================
             
@@ -188,6 +188,6 @@ class AlgorithmExecutor:
         return execute_fraud_detection_advanced(params)
 
 #Demand Forecasting Algorithm wrapper method at end of class
-    def _execute_demand_forecasting(self, params: Dict[str, Any]) -> Dict[str, Any]:
-        """Execute demand forecasting with inventory optimization"""
-        return execute_demand_forecasting(params)
+    #def _execute_demand_forecasting(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        #"""Execute demand forecasting with inventory optimization"""
+        #return execute_demand_forecasting(params)
