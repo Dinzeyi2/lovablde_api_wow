@@ -34,6 +34,7 @@ from app.routes import collaborative_filtering
 from app.routes import anomaly_detection
 from app.routes import load_balancing
 from app.routes import shell_company_detection
+from app.routes import pathfinding
 #from app.routes import demand_forecasting
 
 
@@ -55,6 +56,7 @@ app.include_router(anomaly_detection.router)
 app.include_router(anomaly_detection.router)
 app.include_router(load_balancing.router) 
 app.include_router(shell_company_detection.router)
+app.include_router(pathfinding.router)
 #app.include_router(demand_forecasting.router)
 
 # Rate limiting
