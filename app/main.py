@@ -30,11 +30,6 @@ from app.tasks import train_model_task, execute_algorithm_secure
 from app.services.logic_verifier import LogicVerifier
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
-from app.routes import collaborative_filtering
-from app.routes import anomaly_detection
-from app.routes import load_balancing
-from app.routes import shell_company_detection
-from app.routes import pathfinding
 from app.routes import (
     algorithms,
     anomaly_detection,
@@ -61,7 +56,6 @@ app = FastAPI(
 # Include workflow routes
 app.include_router(workflows.router)
 app.include_router(algorithms.router) # ← ADD THIS LINE
-app.include_router(collaborative_filtering.router)
 app.include_router(anomaly_detection.router)
 app.include_router(anomaly_detection.router)
 app.include_router(load_balancing.router) 
