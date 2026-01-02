@@ -34,7 +34,7 @@ from app.routes import (
     algorithms,
     anomaly_detection,
     # collaborative_filtering,  # TEMPORARILY DISABLED
-    demand_forecasting,
+    #demand_forecasting,
     load_balancing,
     pathfinding,
     shell_company_detection,
