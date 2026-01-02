@@ -188,9 +188,9 @@ class AlgorithmExecutor:
     def _execute_fraud_advanced(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """Execute advanced fraud detection with ML"""
         return execute_fraud_detection_advanced(params)
-     def _execute_anomaly_detection(self, params: Dict[str, Any]) -> Dict[str, Any]:
-         """Execute anomaly detection"""
-         return execute_anomaly_detection(params)
+    def _execute_anomaly_detection(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute advanced anomaly detection with ML"""
+        return execute_anomaly_detection(params)
 #Demand Forecasting Algorithm wrapper method at end of class
     #def _execute_demand_forecasting(self, params: Dict[str, Any]) -> Dict[str, Any]:
         #"""Execute demand forecasting with inventory optimization"""
