@@ -25,6 +25,7 @@ from algorithms_enhanced_part2 import RouteOptimizationProduction, CreditScoring
 from algorithms_fraud_advanced import execute_fraud_detection_advanced
 from algorithms_collaborative_filtering import execute_collaborative_filtering
 from app.algorithms.anomaly_detection import execute_anomaly_detection
+from app.algorithms.pathfinding import execute_pathfinding
 #from app.algorithms.demand_forecasting.algorithms_demand_forecasting import execute_demand_forecasting
 
 
@@ -92,6 +93,9 @@ class AlgorithmExecutor:
             # 10. Demand Forecasting - ENHANCED (Holt-Winters, 85% accuracy)
             'demand-forecasting': self.forecasting.forecast_demand_advanced,
             'anomaly-detection': self._execute_anomaly_detection,
+            'pathfinding-a-star': self._execute_pathfinding_astar,
+            'pathfinding-dijkstra': self._execute_pathfinding_dijkstra,
+            'pathfinding-multi-stop': self._execute_pathfinding_multistop,
             # 11. Demand Forecasting - ENHANCED (LSTM + GA, 85-92% accuracy)
             #'demand-forecasting': self._execute_demand_forecasting,
             
@@ -191,6 +195,20 @@ class AlgorithmExecutor:
     def _execute_anomaly_detection(self, params: Dict[str, Any]) -> Dict[str, Any]:
         """Execute advanced anomaly detection with ML"""
         return execute_anomaly_detection(params)
+    def _execute_pathfinding_astar(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute A* pathfinding"""
+        params['algorithm'] = 'a_star'
+        return execute_pathfinding(params)
+    
+    def _execute_pathfinding_dijkstra(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute Dijkstra pathfinding"""
+        params['algorithm'] = 'dijkstra'
+        return execute_pathfinding(params)
+    
+    def _execute_pathfinding_multistop(self, params: Dict[str, Any]) -> Dict[str, Any]:
+        """Execute multi-stop TSP optimization"""
+        params['algorithm'] = 'multi_stop'
+        return execute_pathfinding(params)
 #Demand Forecasting Algorithm wrapper method at end of class
     #def _execute_demand_forecasting(self, params: Dict[str, Any]) -> Dict[str, Any]:
         #"""Execute demand forecasting with inventory optimization"""
