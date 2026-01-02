@@ -38,6 +38,9 @@ keras>=2.13.0
 statsmodels>=0.14.0
 scipy>=1.11.0
 
+stumpy>=1.12.0              # Matrix Profile algorithm
+tensorflow>=2.13.0          # LSTM Autoencoder
+
 # Monitoring (optional)
 # sentry-sdk[fastapi]==1.40.0
 # Workflow Engine (already have most dependencies)
