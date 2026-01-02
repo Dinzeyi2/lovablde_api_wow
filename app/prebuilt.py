@@ -121,7 +121,35 @@ PREBUILT_ALGORITHMS = {
             'Brand sentiment tracking'
         ]
     },
-    
+
+    'anomaly-detection-timeseries': {
+        'name': 'Anomaly Detection in Time Series',
+        'description': 'Real-time anomaly detection using Matrix Profile + ML (92-98% accuracy)',
+        'category': 'analytics',
+        'pricing_tier': 'pro',
+        'version': '1.0-production',
+        'accuracy': '92-98%',
+        'parameters': {
+            'time_series_data': 'dict - {timestamps, values, metric_name}',
+            'method': 'string - matrix_profile|statistical|isolation_forest|lstm_autoencoder',
+            'window_size': 'integer - Pattern detection window',
+            'severity_threshold': 'float - Minimum severity (0-100)'
+        },
+        'returns': {
+            'anomalies': 'list - Detected anomalies with severity scores',
+            'anomaly_rate': 'float - Percentage of anomalies',
+            'method_used': 'string - Detection method',
+            'execution_time_ms': 'float - Processing time'
+        },
+        'use_cases': [
+            'Cybersecurity intrusion detection',
+            'Server/system monitoring',
+            'Predictive maintenance',
+            'Financial fraud detection',
+            'Network traffic analysis'
+        ]
+    },
+
     'churn-prediction': {
         'name': 'Advanced Churn Prediction',
         'description': 'Gradient boosting ensemble with 20+ features (92% accuracy)',
