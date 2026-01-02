@@ -32,6 +32,7 @@ from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from app.routes import collaborative_filtering
 from app.routes import anomaly_detection
+from app.routes import load_balancing
 #from app.routes import demand_forecasting
 
 
@@ -51,6 +52,7 @@ app.include_router(algorithms.router) # ← ADD THIS LINE
 app.include_router(collaborative_filtering.router)
 app.include_router(anomaly_detection.router)
 app.include_router(anomaly_detection.router)
+app.include_router(load_balancing.router) 
 #app.include_router(demand_forecasting.router)
 
 # Rate limiting
