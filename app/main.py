@@ -35,6 +35,16 @@ from app.routes import anomaly_detection
 from app.routes import load_balancing
 from app.routes import shell_company_detection
 from app.routes import pathfinding
+from app.routes import (
+    algorithms,
+    anomaly_detection,
+    # collaborative_filtering,  # TEMPORARILY DISABLED
+    demand_forecasting,
+    load_balancing,
+    pathfinding,
+    shell_company_detection,
+    workflows
+)
 #from app.routes import demand_forecasting
 
 
