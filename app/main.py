@@ -24,12 +24,14 @@ from app.models_workflow import WorkflowTemplate, WorkflowExecution
 from app.auth import verify_api_key, create_api_key
 from app.routes import workflows 
 from app.routes import algorithms
+from app.routes import anomaly_detection
 from app.prebuilt import PREBUILT_ALGORITHMS
 from app.tasks import train_model_task, execute_algorithm_secure
 from app.services.logic_verifier import LogicVerifier
 from pydantic import BaseModel, Field
 from typing import Optional, List, Dict, Any
 from app.routes import collaborative_filtering
+from app.routes import anomaly_detection
 #from app.routes import demand_forecasting
 
 
@@ -47,6 +49,8 @@ app = FastAPI(
 app.include_router(workflows.router)
 app.include_router(algorithms.router) # ← ADD THIS LINE
 app.include_router(collaborative_filtering.router)
+app.include_router(anomaly_detection.router)
+app.include_router(anomaly_detection.router)
 #app.include_router(demand_forecasting.router)
 
 # Rate limiting
