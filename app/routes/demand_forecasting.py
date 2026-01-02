@@ -11,7 +11,7 @@ from slowapi.util import get_remote_address
 
 from app.auth import verify_api_key
 from app.models import APIKey
-from algorithms_demand_forecasting import (
+from app.algorithms.demand_forecasting.algorithms_demand_forecasting import (
     DemandForecastRequest,
     execute_demand_forecasting
 )
