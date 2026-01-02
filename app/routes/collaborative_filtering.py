@@ -11,7 +11,7 @@ from slowapi.util import get_remote_address
 
 from app.auth import verify_api_key
 from app.models import APIKey
-from algorithms_collaborative_filtering import (
+from app.algorithms.collaborative_filtering import (
     CollaborativeFilteringEngine,
     execute_collaborative_filtering
 )
