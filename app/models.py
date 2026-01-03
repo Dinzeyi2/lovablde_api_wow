@@ -1,9 +1,8 @@
 from sqlalchemy import Column, String, Integer, Float, DateTime, JSON, Boolean, Text
-from sqlalchemy.ext.declarative import declarative_base
+from app.database import Base
 from datetime import datetime
 import uuid
 
-Base = declarative_base()
 
 class APIKey(Base):
     __tablename__ = "api_keys"
