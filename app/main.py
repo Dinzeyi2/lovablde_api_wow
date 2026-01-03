@@ -34,7 +34,7 @@ from typing import Optional, List, Dict, Any
 from app.routes import (
     algorithms,
     anomaly_detection,
-    # collaborative_filtering,  # TEMPORARILY DISABLED
+    collaborative_filtering,  # TEMPORARILY DISABLED
     #demand_forecasting,
     load_balancing,
     pathfinding,
@@ -54,12 +54,12 @@ create_tables()
 app = FastAPI(
     title="AlgoAPI - Secure",
     description="Production-hardened Complex Algorithm API",
-    version="2.0.0-secure"
+    version="2.0.1-secure"
 )
 # Include workflow routes
 app.include_router(workflows.router)
 app.include_router(algorithms.router) # ← ADD THIS LINE
-app.include_router(anomaly_detection.router)
+app.include_router(collaborative_filtering.router)
 app.include_router(anomaly_detection.router)
 app.include_router(load_balancing.router) 
 app.include_router(shell_company_detection.router)
