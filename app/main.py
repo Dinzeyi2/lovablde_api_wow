@@ -19,8 +19,9 @@ import tempfile
 import uuid
 
 from app.database import engine, SessionLocal, Base
-from app.models import Model, APIKey
+from app.models import Model, APIKey, Algorithm, UsageLog
 from app.models_workflow import WorkflowTemplate, WorkflowExecution
+from app.models_algorithms import AlgorithmUsage, AlgorithmQuota
 from app.auth import verify_api_key, create_api_key
 from app.routes import workflows 
 from app.routes import algorithms
