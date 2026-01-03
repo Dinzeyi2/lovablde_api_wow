@@ -45,7 +45,9 @@ from app.routes import (
 
 
 # Create tables
-Base.metadata.create_all(bind=engine)
+#Base.metadata.create_all(bind=engine)
+from app.database import create_tables
+create_tables()
 
 # Initialize app with security
 app = FastAPI(
